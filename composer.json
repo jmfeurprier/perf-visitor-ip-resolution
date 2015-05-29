@@ -17,7 +17,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"perf\\Http\\VisitorIp\\" : "lib/perf/http/VisitorIp/"
+			"perf\\Http\\VisitorIp\\" : "lib/perf/Http/VisitorIp/"
 		}
 	}
 }
