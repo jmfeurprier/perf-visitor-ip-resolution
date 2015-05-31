@@ -31,4 +31,16 @@ class VisitorIpV4RetrieverTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame($ip, $result);
     }
+
+    /**
+     *
+     * @expectedException \RuntimeException
+     * @expectedExceptionMessage Unable to retrieve visitor IP v4 address.
+     */
+    public function testRetrieveWithUnresolvableIpWillThrowException()
+    {
+        $serverValues = array();
+
+        $this->retriever->retrieve($serverValues);
+    }
 }
