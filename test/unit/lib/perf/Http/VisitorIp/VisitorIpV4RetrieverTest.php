@@ -18,6 +18,32 @@ class VisitorIpV4RetrieverTest extends \PHPUnit_Framework_TestCase
 
     /**
      *
+     * @expectedException \RuntimeException
+     * @expectedExceptionMessage Unable to retrieve visitor IP v4 address.
+     */
+    public function testRetrieveWithUnresolvableIpWillThrowException()
+    {
+        $serverValues = array();
+
+        $this->retriever->retrieve($serverValues);
+    }
+
+    /**
+     *
+     * @expectedException \RuntimeException
+     * @expectedExceptionMessage Invalid IP v4 format.
+     */
+    public function testRetrieveWithInvalidIpFormatWillThrowException()
+    {
+        $serverValues = array(
+            'REMOTE_ADDR' => '1.2.3.foo',
+        );
+
+        $this->retriever->retrieve($serverValues);
+    }
+
+    /**
+     *
      */
     public function testRetrieve()
     {
@@ -30,17 +56,5 @@ class VisitorIpV4RetrieverTest extends \PHPUnit_Framework_TestCase
         $result = $this->retriever->retrieve($serverValues);
 
         $this->assertSame($ip, $result);
-    }
-
-    /**
-     *
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessage Unable to retrieve visitor IP v4 address.
-     */
-    public function testRetrieveWithUnresolvableIpWillThrowException()
-    {
-        $serverValues = array();
-
-        $this->retriever->retrieve($serverValues);
     }
 }
