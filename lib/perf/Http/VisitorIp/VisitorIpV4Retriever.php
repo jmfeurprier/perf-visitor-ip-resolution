@@ -50,7 +50,7 @@ class VisitorIpV4Retriever implements VisitorIpRetriever
      */
     private function getServerValues(array $serverValues = null)
     {
-        if (is_null($serverValues)) {
+        if (null === $serverValues) {
             if (!isset($_SERVER)) {
                 $message = 'Unable to retrieve visitor IP address: '
                          . 'superglobal variable $_SERVER is not set. '
