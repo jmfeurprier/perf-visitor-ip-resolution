@@ -1,4 +1,4 @@
-Visitor IP retriever
-====================
+Visitor IP resolution
+=====================
 
-Allows to retrieve current visitor IP address.
+Allows resolving current visitor IP address.
